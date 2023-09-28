@@ -33,5 +33,5 @@ if (url.indexOf(ad) != -1) {
     }
 }
 
-console.log("------------------------Modified Body:", body); 
+$notify("------------------------Modified Body:", body); 
 $done({ body });
