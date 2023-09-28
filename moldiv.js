@@ -20,7 +20,7 @@ if (url.match('/mobile_sdk_gk')) {
         var gatekeepers = obj.data[0].gatekeepers;
         if (gatekeepers && Array.isArray(gatekeepers)) {
             for (var i = 0; i < gatekeepers.length; i++) {
-                gatekeepers[i].value = true;
+                gatekeepers[i].value = false;
             }
         }
         body = JSON.stringify(obj);
@@ -44,7 +44,7 @@ if (url.match('/mobile_sdk_gk')) {
     if (modifiedObj && modifiedObj.suggested_events_setting) {
         var suggestedEvents = JSON.parse(modifiedObj.suggested_events_setting);
         if (suggestedEvents) {
-            suggestedEvents.eligible_for_prediction_events = ["fb_mobile_add_to_cart", "fb_mobile_complete_registration", "fb_mobile_initiated_checkout"];
+            suggestedEvents.eligible_for_prediction_events = [];
             modifiedObj.suggested_events_setting = JSON.stringify(suggestedEvents);
         }
     }
@@ -52,10 +52,9 @@ if (url.match('/mobile_sdk_gk')) {
 } else if (url.match('\\?access_token=')) {
     // 在这里执行包含 '?access_token=' 的URL逻辑操作
     // 修改逻辑操作
-     console.log("8============================access_token:1"); 
     var modifiedObj = JSON.parse(body);
     if (modifiedObj && modifiedObj.app_events_config) {
-        modifiedObj.app_events_config.default_ate_status = 1;
+        modifiedObj.app_events_config.default_ate_status = 0;
         modifiedObj.app_events_config.event_collection_enabled = false;
         modifiedObj.app_events_config.advertiser_id_collection_enabled = false;
     }
