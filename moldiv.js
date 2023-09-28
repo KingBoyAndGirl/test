@@ -48,15 +48,13 @@ if (url.match('/mobile_sdk_gk')) {
             modifiedObj.suggested_events_setting = JSON.stringify(suggestedEvents);
         }
     }
-  console.log("7============================access_token:" + url); 
     body = JSON.stringify(modifiedObj);
 } else if (url.match('\\?access_token=')) {
-     console.log("8============================fields:" + url); 
     // 在这里执行包含 '?access_token=' 的URL逻辑操作
     // 修改逻辑操作
     var modifiedObj = JSON.parse(body);
     if (modifiedObj && modifiedObj.app_events_config) {
-        modifiedObj.app_events_config.default_ate_status = 1;
+        modifiedObj.app_events_config.default_ate_status = 0;
         modifiedObj.app_events_config.event_collection_enabled = true;
         modifiedObj.app_events_config.advertiser_id_collection_enabled = true;
     }
