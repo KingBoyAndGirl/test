@@ -33,13 +33,18 @@ if (url.match('/mobile_sdk_gk')) {
 } else if (url.match('/aem_conversion_configs')) {
       console.log("5============================aem_conversion_configs:", body); 
     // 在这里执行 '/aem_conversion_configs' 的逻辑操作
-} else if (url.match('/cloudbridge_settings')) {
+}else if (url.match('/cloudbridge_settings')) {
       console.log("6============================cloudbridge_settings:", body); 
     // 在这里执行 '/cloudbridge_settings' 的逻辑操作
 } else if (url.match('/fields=')) {
       console.log("7============================fields:", body); 
     // 在这里执行包含 '?fields=' 的URL逻辑操作
+} else if (url.match('/access_token')) {
+  console.log("8============================access_token:", body); 
+} else{
+    $notify("9-1============================URL:", url); 
+    console.log("9-2============================URL:" + url); 
 }
-
-console.log("------------------------Modified Body:", body); 
+$notify("10------------------------Modified Body:", body); 
+console.log("11------------------------Modified Body:", body); 
 $done({ body });
