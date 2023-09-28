@@ -14,10 +14,10 @@ hostname = graph.facebook.com
 var body = $response.body;
 var obj = JSON.parse(body);
 
-const vip = '/mobile_sdk_gk';
+const ad = '/mobile_sdk_gk';
+const vip = '/feawfewaf';
 
-
-if (url.indexOf(vip) != -1) {
+if (url.indexOf(ad) != -1) {
 	if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
         if (gatekeepers && Array.isArray(gatekeepers)) {
@@ -28,5 +28,8 @@ if (url.indexOf(vip) != -1) {
         body = JSON.stringify(obj);
     }
 }
-
+if (url.indexOf(vip) != -1) {
+	
+}
+console.log("Modified Body:", body); 
 $done({ body });
