@@ -17,7 +17,7 @@ var obj = JSON.parse(body);
 
 const ad = '/mobile_sdk_gk';
 const vip = '/feawfewaf';
-
+console.log("Before Body:", body); 
 if (url.indexOf(ad) != -1) {
 	if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
@@ -29,7 +29,5 @@ if (url.indexOf(ad) != -1) {
         body = JSON.stringify(obj);
     }
 }
-
-$notify("Modified Body", "", body); // 发送通知显示修改后的
 console.log("Modified Body:", body); 
 $done({ body });
