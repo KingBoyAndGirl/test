@@ -5,7 +5,7 @@ MOLDIV 解锁会员
 QuantumultX:
 
 [rewrite_local]
-^https://firebase-settings\.googleapis\.com/v1/projects/jellybus-apps/installations/* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test2.js
+^https://firebaseinstallations\.googleapis\.com/v1/projects/jellybus-apps/installations/* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test2.js
 [mitm]
 hostname = firebaseinstallations.googleapis.com
 **************************/
