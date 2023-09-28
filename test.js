@@ -5,7 +5,7 @@ MOLDIV 解锁会员
 QuantumultX:
 
 [rewrite_local]
-https://firebase-settings.crashlytics.com/spi/v2/platforms/ios/gmp/1:932065416488:ios:50292d635dda8df5df2c1d/settings?build_version=138&display_version=5.6&instance=daa418e2c5eb75b086a61409f9ea96a6053b996a&source=4 url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/moldiv.js
+^https://firebase-settings\.crashlytics\.com/spi/v2/platforms/ios/gmp/.* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test.js
 
 [mitm]
 hostname = firebase-settings.crashlytics.com
