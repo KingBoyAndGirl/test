@@ -32,8 +32,24 @@ if (url.match('/mobile_sdk_gk')) {
       console.log("5============================cloudbridge_settings:" + body); 
     // 在这里执行 '/cloudbridge_settings' 的逻辑操作
 } else if (url.match('fields=')) {
-      console.log("6============================fields:" + body); 
     // 在这里执行包含 '?fields=' 的URL逻辑操作
+    // 修改逻辑操作
+    var modifiedObj = JSON.parse(body);
+    if (modifiedObj && modifiedObj.ios_sdk_dialog_flows && modifiedObj.ios_sdk_dialog_flows.default) {
+        modifiedObj.ios_sdk_dialog_flows.default.use_native_flow = true;
+    }
+    if (modifiedObj && modifiedObj.gdpv4_nux_enabled !== undefined) {
+        modifiedObj.gdpv4_nux_enabled = true;
+    }
+    if (modifiedObj && modifiedObj.suggested_events_setting) {
+        var suggestedEvents = JSON.parse(modifiedObj.suggested_events_setting);
+        if (suggestedEvents) {
+            suggestedEvents.eligible_for_prediction_events = ["fb_mobile_add_to_cart", "fb_mobile_complete_registration", "fb_mobile_initiated_checkout"];
+            modifiedObj.suggested_events_setting = JSON.stringify(suggestedEvents);
+        }
+    }
+
+    body = JSON.stringify(modifiedObj);
 } else if (url.match('?access_token')) {
   console.log("7============================access_token:" + body); 
 } else{
