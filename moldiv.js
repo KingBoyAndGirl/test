@@ -18,10 +18,11 @@ var obj = JSON.parse(body);
 const ad = '/mobile_sdk_gk';
 const vip = '/feawfewaf';
 console.log("1============================Before Body:", body); 
-console.log("2============================Before Body:", url); 
-console.log("3============================Before Body:", obj); 
+console.log("2============================URL:", url); 
+console.log("3============================Object:", obj); 
+
 if (url.indexOf(ad) != -1) {
-	if (obj && obj.data && Array.isArray(obj.data)) {
+    if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
         if (gatekeepers && Array.isArray(gatekeepers)) {
             for (var i = 0; i < gatekeepers.length; i++) {
@@ -31,5 +32,6 @@ if (url.indexOf(ad) != -1) {
         body = JSON.stringify(obj);
     }
 }
+
 console.log("------------------------Modified Body:", body); 
 $done({ body });
