@@ -19,7 +19,7 @@ const ad = '/mobile_sdk_gk';
 const vip = '/feawfewaf';
 console.log("1============================Before Body:", body); 
 console.log("2============================URL:", url); 
-console.log("3============================Object:", obj); 
+console.log("3============================Object:", JSON.stringify(obj)); 
 
 if (url.indexOf(ad) != -1) {
     if (obj && obj.data && Array.isArray(obj.data)) {
@@ -33,5 +33,5 @@ if (url.indexOf(ad) != -1) {
     }
 }
 
-$notify("------------------------Modified Body:", body); 
+console.log("------------------------Modified Body:", body); 
 $done({ body });
