@@ -5,7 +5,7 @@ MOLDIV 解锁会员
 QuantumultX:
 
 [rewrite_local]
-^https://graph\.facebook\.com/v(\d+\.\d+)/(\d+/mobile_sdk_gk\?fields=gatekeepers&format=json&include_headers=false&os_version=17\.0&platform=ios&sdk=ios&sdk_version=\d+\.\d+\.\d+) url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/moldiv.js
+^https://graph\.facebook\.com/v\d+\.\d+/\d+.* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/moldiv.js
 
 [mitm]
 hostname = graph.facebook.com
@@ -15,13 +15,11 @@ var body = $response.body;
 var url = $request.url;
 var obj = JSON.parse(body);
 
-const ad = '/mobile_sdk_gk';
-const vip = '/feawfewaf';
 console.log("1============================Before Body:", body); 
 console.log("2============================URL:", url); 
 console.log("3============================Object:", JSON.stringify(obj)); 
 
-if (url.indexOf(ad) != -1) {
+if (url.match('/mobile_sdk_gk')) {
     if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
         if (gatekeepers && Array.isArray(gatekeepers)) {
@@ -31,6 +29,12 @@ if (url.indexOf(ad) != -1) {
         }
         body = JSON.stringify(obj);
     }
+} else if (url.match('/aem_conversion_configs')) {
+    // 在这里执行 '/aem_conversion_configs' 的逻辑操作
+} else if (url.match('/cloudbridge_settings')) {
+    // 在这里执行 '/cloudbridge_settings' 的逻辑操作
+} else if (url.match('/fields=')) {
+    // 在这里执行包含 '?fields=' 的URL逻辑操作
 }
 
 console.log("------------------------Modified Body:", body); 
