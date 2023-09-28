@@ -5,48 +5,27 @@ MOLDIV 解锁会员
 QuantumultX:
 
 [rewrite_local]
-^https://firebase-settings\.crashlytics\.com/spi/v2/platforms/ios/gmp/.* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/moldiv.js
-
+^https://firebase-settings\.googleapis\.com/v1/projects/jellybus-apps/installations/* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test2.js
 [mitm]
-hostname = firebase-settings.crashlytics.com
+hostname = firebaseinstallations.googleapis.com
 **************************/
 
 
 var url = $request.url;
 var body = $response.body;
  console.log("1============================:" + body); 
-if (url.indexOf("https://firebase-settings.crashlytics.com/spi/v2/platforms/ios/gmp/") != -1) {
+if (url.indexOf("https://firebaseinstallations.googleapis.com/v1/projects/jellybus-apps/installations/") != -1) {
     var modifiedData = {
-        "fabric" : {
-            "org_id" : "60379b6fb1f49ada1139998a",
-            "bundle_id" : "com.jellybus.moldiv"
-        },
-        "cache_duration" : 86400,
-        "settings_version" : 3,
-        "app" : {
-            "status" : "activated",
-            "update_required" : false,
-            "report_upload_variant" : 2
-        },
-        "on_demand_upload_rate_per_minute" : 10,
-        "on_demand_backoff_base" : 1.2,
-        "on_demand_backoff_step_duration_seconds" : 60,
-        "features" : {
-            "collect_reports" : true,
-            "push_enabled" : false,
-            "collect_anrs" : true,
-            "collect_logged_exceptions" : true,
-            "collect_analytics" : false,
-            "collect_metric_kit" : false,
-            "collect_build_ids" : true,
-            "prompt_enabled" : false,
-            "firebase_crashlytics_enabled" : true
-        },
-        "app_quality" : {
-            "session_timeout_seconds" : 1800,
-            "sessions_enabled" : true,
-            "sampling_rate" : 1
-        }
+        {
+  "refreshToken" : "3_AS3qfwJmGhPk5ATRGQ98mV8h-w-_jQ7l-LkNzfZKFOr6SDxFL_7qlgvq6cDFxYhyN3ejh8o0qfXGcmF2-J8ywpVMy-KTCGy87xbKF-H3kt_5u7w",
+  "fid" : "ceW0voFb0Uoqsl5He_mDqi",
+  "name" : "projects/932065416488/installations/ceW0voFb0Uoqsl5He_mDqi",
+  "authToken" : {
+    "token" : "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6IjE6OTMyMDY1NDE2NDg4Omlvczo1MDI5MmQ2MzVkZGE4ZGY1ZGYyYzFkIiwiZXhwIjoxNjk2NDk1NTgwLCJmaWQiOiJjZVcwdm9GYjBVb3FzbDVIZV9tRHFpIiwicHJvamVjdE51bWJlciI6OTMyMDY1NDE2NDg4fQ.AB2LPV8wRAIgKgxJCuqWrs7hdFK4AoA1ozTtoksAsR63VxI6DGqKPcgCIFZ7AumG3QJIHoftENKL_3i3dVYSSw8BLatwcEaIXKnh",
+    "expiresIn" : "604800s"
+  }
+}
+
     };
     
     body = JSON.stringify(modifiedData);
