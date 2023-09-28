@@ -17,7 +17,9 @@ var obj = JSON.parse(body);
 
 const ad = '/mobile_sdk_gk';
 const vip = '/feawfewaf';
-console.log("============================Before Body:", body); 
+console.log("1============================Before Body:", body); 
+console.log("2============================Before Body:", url); 
+console.log("3============================Before Body:", obj); 
 if (url.indexOf(ad) != -1) {
 	if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
