@@ -31,7 +31,7 @@ if (url.match('/mobile_sdk_gk')) {
 }else if (url.match('/cloudbridge_settings')) {
       console.log("5============================cloudbridge_settings:" + body); 
     // 在这里执行 '/cloudbridge_settings' 的逻辑操作
-} else if (url.match('fields=')) {
+} else if (url.match('\\?fields=')) {
     // 在这里执行包含 '?fields=' 的URL逻辑操作
     // 修改逻辑操作
     var modifiedObj = JSON.parse(body);
@@ -48,12 +48,23 @@ if (url.match('/mobile_sdk_gk')) {
             modifiedObj.suggested_events_setting = JSON.stringify(suggestedEvents);
         }
     }
-
+  console.log("7============================access_token:" + url); 
     body = JSON.stringify(modifiedObj);
-} else if (url.match('?access_token')) {
-  console.log("7============================access_token:" + body); 
-} else{
-    console.log("9-2============================URL:" + url); 
+} else if (url.match('\\?access_token=')) {
+     console.log("8============================fields:" + url); 
+    // 在这里执行包含 '?access_token=' 的URL逻辑操作
+    // 修改逻辑操作
+    var modifiedObj = JSON.parse(body);
+    if (modifiedObj && modifiedObj.app_events_config) {
+        modifiedObj.app_events_config.default_ate_status = 1;
+        modifiedObj.app_events_config.event_collection_enabled = true;
+        modifiedObj.app_events_config.advertiser_id_collection_enabled = true;
+    }
+    body = JSON.stringify(modifiedObj);
+}
+ else{
+    console.log("9-1============================URL:" + url); 
+    console.log("9-2============================body:" + body); 
 }
 console.log("11------------------------Modified Body:" + body); 
 $done({ body });
