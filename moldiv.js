@@ -5,7 +5,7 @@ MOLDIV 解锁会员
 QuantumultX:
 
 [rewrite_local]
-^https://graph\.facebook\.com/v(\d+\.\d+)/(\d+\?fields=gatekeepers&format=json&include_headers=false&os_version=17\.0&platform=ios&sdk=ios&sdk_version=\d+\.\d+\.\d+) url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/moldiv.js
+^https://graph\.facebook\.com/v(\d+\.\d+)/(\d+/mobile_sdk_gk\?fields=gatekeepers&format=json&include_headers=false&os_version=17\.0&platform=ios&sdk=ios&sdk_version=\d+\.\d+\.\d+) url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/moldiv.js
 
 [mitm]
 hostname = graph.facebook.com
