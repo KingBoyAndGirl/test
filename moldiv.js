@@ -31,5 +31,6 @@ if (url.indexOf(ad) != -1) {
 if (url.indexOf(vip) != -1) {
 	
 }
+$notify("Modified Body", "", body); // 发送通知显示修改后的
 console.log("Modified Body:", body); 
 $done({ body });
