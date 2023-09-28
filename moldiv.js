@@ -15,11 +15,7 @@ var body = $response.body;
 var url = $request.url;
 var obj = JSON.parse(body);
 
-console.log("1============================Before Body:" + body); 
-console.log("2============================Object:" + JSON.stringify(obj)); 
-
 if (url.match('/mobile_sdk_gk')) {
-    console.log("3============================mobile_sdk_gk:" + body); 
     if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
         if (gatekeepers && Array.isArray(gatekeepers)) {
