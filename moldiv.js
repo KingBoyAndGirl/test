@@ -15,12 +15,11 @@ var body = $response.body;
 var url = $request.url;
 var obj = JSON.parse(body);
 
-console.log("1============================Before Body:", body); 
-console.log("2============================URL:", url); 
-console.log("3============================Object:", JSON.stringify(obj)); 
+console.log("1============================Before Body:" + body); 
+console.log("2============================Object:" + JSON.stringify(obj)); 
 
 if (url.match('/mobile_sdk_gk')) {
-    console.log("4============================mobile_sdk_gk:", body); 
+    console.log("3============================mobile_sdk_gk:" + body); 
     if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
         if (gatekeepers && Array.isArray(gatekeepers)) {
@@ -31,20 +30,18 @@ if (url.match('/mobile_sdk_gk')) {
         body = JSON.stringify(obj);
     }
 } else if (url.match('/aem_conversion_configs')) {
-      console.log("5============================aem_conversion_configs:", body); 
+      console.log("4============================aem_conversion_configs:" + body); 
     // 在这里执行 '/aem_conversion_configs' 的逻辑操作
 }else if (url.match('/cloudbridge_settings')) {
-      console.log("6============================cloudbridge_settings:", body); 
+      console.log("5============================cloudbridge_settings:" + body); 
     // 在这里执行 '/cloudbridge_settings' 的逻辑操作
-} else if (url.match('/fields=')) {
-      console.log("7============================fields:", body); 
+} else if (url.match('fields=')) {
+      console.log("6============================fields:" + body); 
     // 在这里执行包含 '?fields=' 的URL逻辑操作
-} else if (url.match('/access_token')) {
-  console.log("8============================access_token:", body); 
+} else if (url.match('?access_token')) {
+  console.log("7============================access_token:" + body); 
 } else{
-    $notify("9-1============================URL:", url); 
     console.log("9-2============================URL:" + url); 
 }
-$notify("10------------------------Modified Body:", body); 
-console.log("11------------------------Modified Body:", body); 
+console.log("11------------------------Modified Body:" + body); 
 $done({ body });
