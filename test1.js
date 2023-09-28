@@ -16,7 +16,7 @@ var body = $response.body;
 console.log("1============================:" + body);
 if (url.indexOf("/activities") != -1) {
     var modifiedData = {
-        "success": true
+        "success": false
     };
 
     body = JSON.stringify(modifiedData);
