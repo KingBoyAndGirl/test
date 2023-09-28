@@ -17,7 +17,7 @@ var obj = JSON.parse(body);
 
 const ad = '/mobile_sdk_gk';
 const vip = '/feawfewaf';
-console.log("Before Body:", body); 
+console.log("============================Before Body:", body); 
 if (url.indexOf(ad) != -1) {
 	if (obj && obj.data && Array.isArray(obj.data)) {
         var gatekeepers = obj.data[0].gatekeepers;
@@ -29,5 +29,5 @@ if (url.indexOf(ad) != -1) {
         body = JSON.stringify(obj);
     }
 }
-console.log("Modified Body:", body); 
+console.log("------------------------Modified Body:", body); 
 $done({ body });
