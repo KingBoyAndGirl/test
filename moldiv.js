@@ -52,15 +52,15 @@ if (url.match('/mobile_sdk_gk')) {
 } else if (url.match('\\?access_token=')) {
     // 在这里执行包含 '?access_token=' 的URL逻辑操作
     // 修改逻辑操作
+     console.log("8============================access_token:2"); 
     var modifiedObj = JSON.parse(body);
     if (modifiedObj && modifiedObj.app_events_config) {
-        modifiedObj.app_events_config.default_ate_status = 0;
-        modifiedObj.app_events_config.event_collection_enabled = true;
-        modifiedObj.app_events_config.advertiser_id_collection_enabled = true;
+        modifiedObj.app_events_config.default_ate_status = 2;
+        modifiedObj.app_events_config.event_collection_enabled = false;
+        modifiedObj.app_events_config.advertiser_id_collection_enabled = false;
     }
     body = JSON.stringify(modifiedObj);
-}
- else{
+} else{
     console.log("9-1============================URL:" + url); 
     console.log("9-2============================body:" + body); 
 }
