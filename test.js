@@ -5,51 +5,45 @@ MOLDIV 解锁会员
 QuantumultX:
 
 [rewrite_local]
-^https://firebase-settings\.crashlytics\.com/spi/v2/platforms/ios/gmp/.* url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test.js
-
+^https://planitphoto\.b4a\.io/classes/Purchase$ url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test.js
 [mitm]
-hostname = firebase-settings.crashlytics.com
-**************************/
-
+hostname = planitphoto.b4a.io
+***************************/
 
 var url = $request.url;
 var body = $response.body;
- console.log("1============================:" + body); 
-if (url.indexOf("https://firebase-settings.crashlytics.com/spi/v2/platforms/ios/gmp/") != -1) {
+console.log("1============================:" + body); 
+if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
     var modifiedData = {
-        "fabric" : {
-            "org_id" : "60379b6fb1f49ada1139998a",
-            "bundle_id" : "com.jellybus.moldiv"
-        },
-        "cache_duration" : 86400,
-        "settings_version" : 3,
-        "app" : {
-            "status" : "activated",
-            "update_required" : false,
-            "report_upload_variant" : 2
-        },
-        "on_demand_upload_rate_per_minute" : 10,
-        "on_demand_backoff_base" : 1.2,
-        "on_demand_backoff_step_duration_seconds" : 60,
-        "features" : {
-            "collect_reports" : true,
-            "push_enabled" : false,
-            "collect_anrs" : true,
-            "collect_logged_exceptions" : true,
-            "collect_analytics" : false,
-            "collect_metric_kit" : false,
-            "collect_build_ids" : true,
-            "prompt_enabled" : false,
-            "firebase_crashlytics_enabled" : true
-        },
-        "app_quality" : {
-            "session_timeout_seconds" : 1800,
-            "sessions_enabled" : true,
-            "sampling_rate" : 1
-        }
+        "results": [
+            {
+                "objectId": "sDupKySZxx",
+                "userID": "7Y9LXJIPdg",
+                "order": {
+                    "updatedAt": "2023-12-09T00:01:48.949Z",
+                    "original_order_no": "202312090001478322",
+                    "payment_method": "Wechat",
+                    "amount": "19.99",
+                    "__type": "Object",
+                    "order_date": "2023-12-09 00:01:48",
+                    "fee": "0.44",
+                    "sku": "model_five_year",
+                    "type": "P",
+                    "className": "Sale",
+                    "app": "Planit China",
+                    "objectId": "32wpDGBz3d",
+                    "order_no": "202312090001478322",
+                    "currency": "USD",
+                    "device_model": "HUAWEI NOP-AN00",
+                    "createdAt": "2023-12-09T00:01:48.949Z"
+                },
+                "updatedAt": "2023-12-09T00:03:11.583Z",
+                "createdAt": "2023-12-09T00:03:11.583Z"
+            }
+        ]
     };
     
     body = JSON.stringify(modifiedData);
 }
- console.log("2============================:" + body); 
+console.log("2============================:" + body); 
 $done({ body });
