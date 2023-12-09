@@ -54,7 +54,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                 "type" : "P",
                 "className" : "Sale",
                 "app" : "Planit China",
-                "objectId" : "generateRandomString(10),
+                "objectId" : generateRandomString(10),
                 "order_no" : "20991209015000909093",
                 "currency" : "USD",
                 "device_model" : "HUAWEI NOP-AN00",
@@ -70,6 +70,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
 }
 console.log("2============================:" + body); 
 $done({ body });
+
 
 
 function generateRandomString(length) {
