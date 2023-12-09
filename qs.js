@@ -1,11 +1,10 @@
 /*
-MOLDIV 解锁会员
 
 ***************************
 QuantumultX:
 
 [rewrite_local]
-^https://planitphoto\.b4a\.io/classes/Purchase$ url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/test.js
+^https://planitphoto\.b4a\.io/classes/Purchase$ url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qs.js
 [mitm]
 hostname = planitphoto.b4a.io
 ***************************/
@@ -56,7 +55,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                 "className" : "Sale",
                 "app" : "Planit China",
                 "objectId" : "9ry1TNPPXG",
-                "order_no" : "20231209015000909093",
+                "order_no" : "20991209015000909093",
                 "currency" : "USD",
                 "device_model" : "HUAWEI NOP-AN00",
                 "createdAt" : "2023-12-09T01:50:02.188Z"
