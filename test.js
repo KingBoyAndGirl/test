@@ -39,6 +39,30 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                 },
                 "updatedAt": "2023-12-09T00:03:11.583Z",
                 "createdAt": "2023-12-09T00:03:11.583Z"
+            },
+            {
+                "objectId": "sDupKySZxx",
+                "userID": "7Y9LXJIPdg",
+                "order": {
+                    "updatedAt": "2023-12-09T00:01:48.949Z",
+                    "original_order_no": "202312090001478322",
+                    "payment_method": "Wechat",
+                    "amount": "99.99",
+                    "__type": "Object",
+                    "order_date": "2023-12-09 00:01:48",
+                    "fee": "0.44",
+                    "sku": "flight_five_year",
+                    "type": "P",
+                    "className": "Sale",
+                    "app": "Planit China",
+                    "objectId": "32wpDGBz3d",
+                    "order_no": "202312090001478322",
+                    "currency": "USD",
+                    "device_model": "HUAWEI NOP-AN00",
+                    "createdAt": "2023-12-09T00:01:48.949Z"
+                },
+                "updatedAt": "2023-12-09T00:03:11.583Z",
+                "createdAt": "2023-12-09T00:03:11.583Z"
             }
         ]
     };
