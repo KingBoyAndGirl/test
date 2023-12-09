@@ -41,11 +41,11 @@ function generateOrderNo() {
     }
 
     return {
-		original_order_no: orderNo,
-		order_no: orderNo,
+	original_order_no: orderNo,
+	order_no: orderNo,
         updatedAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`,
         createdAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`,
-        order_date: `${year}-12-10 ${hours}:${minutes}:${seconds}`
+        order_date: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
     };
 }
 
