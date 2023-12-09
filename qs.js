@@ -23,14 +23,13 @@ function generateRandomString(length) {
 
 var url = $request.url;
 var body = $response.body;
-console.log("1============================:" + body);
 
 if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
     var modifiedData = {
         "results": [
             {
-                "objectId": generateRandomString(10), // 10为字符串的长度，你可以根据需要调整
-                "userID": generateRandomString(10), // 10为字符串的长度，你可以根据需要调整
+                "objectId": generateRandomString(10),
+                "userID": generateRandomString(10),
                 "order": {
                     "updatedAt": "2099-12-10T00:01:48.949Z",
                     "original_order_no": "209912100001478322",
@@ -43,7 +42,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-                    "objectId": generateRandomString(10), // 10为字符串的长度，你可以根据需要调整
+                    "objectId": generateRandomString(10),
                     "order_no": "209912100001478322",
                     "currency": "USD",
                     "device_model": "HUAWEI NOP-AN00",
@@ -53,8 +52,8 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                 "createdAt": "2099-12-10T00:03:11.583Z"
             },
             {
-                "objectId": generateRandomString(10), // 10为字符串的长度，你可以根据需要调整
-                "userID": generateRandomString(10), // 10为字符串的长度，你可以根据需要调整
+                "objectId": generateRandomString(10),
+                "userID": generateRandomString(10),
                 "order": {
                     "updatedAt": "2099-12-09T01:50:02.188Z",
                     "original_order_no": "20991209015000909093",
@@ -67,7 +66,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-                    "objectId": generateRandomString(10), // 10为字符串的长度，你可以根据需要调整
+                    "objectId": generateRandomString(10),
                     "order_no": "20991209015000909093",
                     "currency": "USD",
                     "device_model": "HUAWEI NOP-AN00",
@@ -83,5 +82,4 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
 }
 console.log("2============================:" + body);
 $done({ body });
- 
 
