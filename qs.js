@@ -68,7 +68,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-					"objectId": generateRandomString(10),
+		    "objectId": generateRandomString(10),
                     "device_model": "HUAWEI NOP-AN00"
                 },
                 "updatedAt": generateOrderNo().updatedAt,
@@ -87,7 +87,7 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-					"objectId": generateRandomString(10),
+		    "objectId": generateRandomString(10),
                     "device_model": "HUAWEI NOP-AN00"
                 },
                 "updatedAt": generateOrderNo().updatedAt,
