@@ -51,7 +51,7 @@ var url = $request.url;
 var body = $response.body;
 
 if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
-    var orderNoValue = generateOrderNo().orderNo;  // 生成 order_no 的值
+    var orderNoValue = generateOrderNo().orderNo;
     var modifiedData = {
         "results": [
             {
