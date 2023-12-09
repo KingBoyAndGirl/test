@@ -21,6 +21,33 @@ function generateRandomString(length) {
     return result;
 }
 
+function generateOrderNo() {
+    const now = new Date();
+    now.setDate(now.getDate() - 1); // 减去一天
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+
+    let orderNo = `${year}${month}${day}${hours}${minutes}${seconds}${milliseconds}`;
+
+    // 如果当前orderNo的长度小于17，添加随机数字
+    while (orderNo.length < 17) {
+        orderNo += Math.floor(Math.random() * 10);
+    }
+
+    return {
+        orderNo,
+        updatedAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`,
+        createdAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`,
+        orderDate: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+    };
+}
+
 var url = $request.url;
 var body = $response.body;
 
@@ -31,55 +58,41 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                 "objectId": generateRandomString(10),
                 "userID": generateRandomString(10),
                 "order": {
-                    "updatedAt": "2099-12-10T00:01:48.949Z",
-                    "original_order_no": "209912100001478322",
+                    ...generateOrderNo(),
+                    "original_order_no": generateOrderNo().orderNo,
                     "payment_method": "Wechat",
                     "amount": "19.99",
                     "__type": "Object",
-                    "order_date": "2099-12-10 00:01:48",
                     "fee": "0.44",
                     "sku": "model_five_year",
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-                    "objectId": generateRandomString(10),
-                    "order_no": "209912100001478322",
-                    "currency": "USD",
                     "device_model": "HUAWEI NOP-AN00",
-                    "createdAt": "2099-12-10T00:01:48.949Z"
-                },
-                "updatedAt": "2099-12-10T00:03:11.583Z",
-                "createdAt": "2099-12-10T00:03:11.583Z"
+                }
             },
             {
                 "objectId": generateRandomString(10),
                 "userID": generateRandomString(10),
                 "order": {
-                    "updatedAt": "2099-12-09T01:50:02.188Z",
-                    "original_order_no": "20991209015000909093",
+                    ...generateOrderNo(),
+                    "original_order_no": generateOrderNo().orderNo,
                     "payment_method": "Wechat",
-                    "amount": "4.99",
+                    "amount": "99.99",
                     "__type": "Object",
-                    "order_date": "2099-12-09 01:50:01",
-                    "fee": "0.11",
+                    "fee": "2.20",
                     "sku": "explorer_five_year",
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-                    "objectId": generateRandomString(10),
-                    "order_no": "20991209015000909093",
-                    "currency": "USD",
                     "device_model": "HUAWEI NOP-AN00",
-                    "createdAt": "2099-12-09T01:50:02.188Z"
-                },
-                "updatedAt": "2099-12-09T01:55:46.988Z",
-                "createdAt": "2099-12-09T01:55:46.988Z"
+                }
             }
         ]
     };
 
     body = JSON.stringify(modifiedData);
 }
+
 console.log("2============================:" + body);
 $done({ body });
-
