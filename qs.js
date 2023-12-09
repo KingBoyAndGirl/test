@@ -1,14 +1,3 @@
-/*
-
-***************************
-QuantumultX:
-
-[rewrite_local]
-^https://planitphoto\.b4a\.io/classes/Purchase$ url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qs.js
-[mitm]
-hostname = planitphoto.b4a.io
-***************************/
-
 function generateRandomString(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -35,7 +24,7 @@ function generateOrderNo() {
 
     let orderNo = `${year}${month}${day}${hours}${minutes}${seconds}${milliseconds}`;
 
-    // 如果当前orderNo的长度小于17，添加随机数字
+    // 如果当前 orderNo 的长度小于 17，添加随机数字
     while (orderNo.length < 17) {
         orderNo += Math.floor(Math.random() * 10);
     }
@@ -43,8 +32,7 @@ function generateOrderNo() {
     return {
         orderNo,
         updatedAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`,
-        createdAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`,
-        orderDate: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+        createdAt: `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`
     };
 }
 
@@ -52,6 +40,7 @@ var url = $request.url;
 var body = $response.body;
 
 if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
+    var orderNoValue = generateOrderNo().orderNo;  // 生成 order_no 的值
     var modifiedData = {
         "results": [
             {
@@ -59,7 +48,8 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                 "userID": generateRandomString(10),
                 "order": {
                     ...generateOrderNo(),
-                    "original_order_no": generateOrderNo().orderNo,
+                    "original_order_no": orderNoValue,
+                    "order_no": orderNoValue,
                     "payment_method": "Wechat",
                     "amount": "19.99",
                     "__type": "Object",
@@ -68,15 +58,18 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-                    "device_model": "HUAWEI NOP-AN00",
-                }
+                    "device_model": "HUAWEI NOP-AN00"
+                },
+                "updatedAt": generateOrderNo().updatedAt,
+                "createdAt": generateOrderNo().createdAt
             },
             {
                 "objectId": generateRandomString(10),
                 "userID": generateRandomString(10),
                 "order": {
                     ...generateOrderNo(),
-                    "original_order_no": generateOrderNo().orderNo,
+                    "original_order_no": orderNoValue,
+                    "order_no": orderNoValue,
                     "payment_method": "Wechat",
                     "amount": "99.99",
                     "__type": "Object",
@@ -85,8 +78,10 @@ if (url.indexOf("https://planitphoto.b4a.io/classes/Purchase") != -1) {
                     "type": "P",
                     "className": "Sale",
                     "app": "Planit China",
-                    "device_model": "HUAWEI NOP-AN00",
-                }
+                    "device_model": "HUAWEI NOP-AN00"
+                },
+                "updatedAt": generateOrderNo().updatedAt,
+                "createdAt": generateOrderNo().createdAt
             }
         ]
     };
