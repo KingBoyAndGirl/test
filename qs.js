@@ -1,3 +1,13 @@
+/*
+***************************
+QuantumultX:
+
+[rewrite_local]
+^https://planitphoto\.b4a\.io/classes/Purchase$ url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qs.js
+[mitm]
+hostname = planitphoto.b4a.io
+***************************/
+
 function generateRandomString(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
