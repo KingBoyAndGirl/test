@@ -18,11 +18,15 @@ var modifiedData = {
   "status" : "1",
   "message" : "操作成功",
   "data" : {
-    "plan" : "",
-    "isGrayscaleUser" : true,
-    "svipStartTime" : "2024-01-31 23:59:59",
-    "isSVIP" : true,
-    "svipExpTime" : "2099-01-31 23:59:59"
+    "vipList" : [
+      {
+        "valid" : true,
+        "end" : "2024-01-20",
+        "type" : "vip",
+        "name" : "启信宝VIP",
+        "start" : "2099-01-17"
+      }
+    ]
   }
 };
 
