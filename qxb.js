@@ -13,7 +13,8 @@ hostname = appc.qixin.com, app-query.qixin.com
 var url = $request.url;
 var body = $response.body;
 
-console.log("1============================:" + url);
+console.log("----------=========:\n" + url);
+console.log("1------------------:\n" + body);
 
 var modifiedData = {
   "status" : "1",
@@ -33,5 +34,5 @@ var modifiedData = {
 
 body = JSON.stringify(modifiedData);
 
-console.log("2============================:" + body);
+console.log("2============================:\n" + body);
 $done({ body });
