@@ -4,7 +4,7 @@
 QuantumultX:
 
 [rewrite_local]
-^https:\//appc.qixin.com\/v4\/user\/svip\/getSVIPInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
+^https:\//appc.qixin.com\/v4\/vip\/getAllVipInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
 [mitm]
 hostname = appc.qixin.com
 ***************************/
