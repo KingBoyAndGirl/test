@@ -4,9 +4,10 @@
 QuantumultX:
 
 [rewrite_local]
-^https:\/\/app[.-]qixin\.com\/(v4\/vip\/getAllVipInfo|api\/vip\/getAllVipInfo) url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
+^https:\/\/appc.qixin.com\/v4\/vip\/getAllVipInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
+^https:\/\/app-query.qixin.com\/api\/vip\/getAllVipInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
 [mitm]
-hostname = app-query.qixin.com, appc.qixin.com
+hostname = appc.qixin.com, app-query.qixin.com
 ***************************/
 
 var url = $request.url;
