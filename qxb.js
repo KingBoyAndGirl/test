@@ -13,7 +13,7 @@ hostname = appc.qixin.com
 var url = $request.url;
 var body = $response.body;
 
-
+console.log("1============================:" + body);
 var modifiedData = {
   "status" : "1",
   "message" : "操作成功",
