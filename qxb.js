@@ -4,16 +4,16 @@
 QuantumultX:
 
 [rewrite_local]
-^https:\//appc.qixin.com\/v4\/vip\/getAllVipInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
+^https:\/\/app[.-]qixin\.com\/(v4\/vip\/getAllVipInfo|api\/vip\/getAllVipInfo) url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
 [mitm]
-hostname = appc.qixin.com
+hostname = app-query.qixin.com, appc.qixin.com
 ***************************/
-
 
 var url = $request.url;
 var body = $response.body;
 
-console.log("1============================:" + body);
+console.log("1============================:" + url);
+
 var modifiedData = {
   "status" : "1",
   "message" : "操作成功",
@@ -31,7 +31,6 @@ var modifiedData = {
 };
 
 body = JSON.stringify(modifiedData);
-
 
 console.log("2============================:" + body);
 $done({ body });
