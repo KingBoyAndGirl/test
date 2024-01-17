@@ -22,8 +22,8 @@ var modifiedData = {
       {
         "valid" : true,
         "end" : "2099-01-20",
-        "type" : "vip",
-        "name" : "启信宝VIP",
+        "type" : "svip",
+        "name" : "启信宝SVIP",
         "start" : "2024-01-17"
       }
     ]
