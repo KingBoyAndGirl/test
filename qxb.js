@@ -8,7 +8,7 @@ QuantumultX:
 ^https:\/\/appc.qixin.com\/v4\/vip\/getAllVipInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
 ^https:\/\/app-query.qixin.com\/api\/vip\/getAllVipInfo url script-response-body https://raw.githubusercontent.com/KingBoyAndGirl/test/main/qxb.js
 [mitm]
-hostname = appc.qixin.com, app-query.qixin.com
+hostname = appc.qixin.com, app-query.qixin.com,app-vip.qixin.com
 ***************************/
 
 var url = $request.url;
