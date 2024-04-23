@@ -1,0 +1,29 @@
+#!name=七猫小说
+#!desc=七猫小说广告屏蔽
+#!version=v1.1
+#!date=2023-10-02 19:00
+#!category=zqzess
+
+[MITM]
+hostname = %APPEND% open.e.kuaishou.cn,api-access.pangolin-sdk-toutiao-b.com,api-access.pangolin-sdk-toutiao.com,api-access.pangolin-sdk-toutiao1.com,dsp-x.jd.com,p1-lm.adukwai.com,lf-cdn-tos.bytescm.com
+
+[URL Rewrite]
+^https:\/\/open\.e\.kuaishou\.cn\/rest\/e\/v3\/open\/univ.*$ REJECT
+^https:\/\/api-access\.pangolin-sdk-toutiao-b\.com\/api\/ad\/union\/sdk\/get_ads.*$ REJECT
+^https:\/\/api-access\.(pangolin-sdk-toutiao|pangolin-sdk-toutiao1)\.com\/api\/ad.*$ REJECT
+^https:\/\/dsp\-x\.jd\.com\/adx\/sdk.*$ REJECT
+^https:\/\/api\-cfg\.wtzw\.com\/v1\/(adv|reward|operation).*$ REJECT
+^https:\/\/p1\-lm\.adukwai\.com\/bs2\/adUnionVideo.*$ REJECT
+^https:\/\/lf\-cdn\-tos\.bytescm\.com\/obj\/static\/ad.*$ REJECT
+
+[Host]
+cdn-new-ad.wtzw.com REJECT
+a-remad.qm989.com REJECT
+mobads.baidu.com REJECT
+pglstatp-toutiao.com REJECT
+gdt.qq.com REJECT
+qzs.gdtimg.com REJECT
+mobads-pre-config.cdn.bcebos.com REJECT
+pgdt.ugdtimg.com REJECT
+remad.qm989.com REJECT
+api-cfg.wtzw.com REJECT
