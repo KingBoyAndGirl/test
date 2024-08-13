@@ -1,0 +1,13 @@
+#!name=一甜相机
+
+#!desc=一甜相机解锁会员 
+
+
+
+[MITM]
+
+hostname = %APPEND% api-m2u.kuaishou.com
+
+[Script]
+
+一甜相机=type=http-response,pattern=^https?:\/\/api-m2u\.kuaishou\.com\/api-server\/api\/v2\/vip\/vipUserInfo,script-path=https://raw.githubusercontent.com/KingBoyAndGirl/test/main/1Tian.js
